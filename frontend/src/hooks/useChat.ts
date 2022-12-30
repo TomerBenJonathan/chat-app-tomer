@@ -35,8 +35,8 @@ export function useChat() {
         timestamp: new Date(),
         body: event.target.value,
         authorId: currentUser!.id,
-        // todo: likes should be initialized in the server,
-        // todo: authorName should be added by the server
+        // todo (done): likes should be initialized in the server,
+        // todo (done): authorName should be added by the server
       };
 
 
@@ -74,7 +74,7 @@ export function useChat() {
     userLiked === -1 ? message.likes!.push(currentUser!.id) : message.likes!.splice(userLiked, 1);
     setSelectedMessage({ ...message });
 
-    // todo: change the likes in the server
+    // todo (done): change the likes in the server
     await changeMessageLikes(message.id, currentUser!.id, userLiked !== -1);
   };
 
